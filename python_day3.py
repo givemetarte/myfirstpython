@@ -21,4 +21,22 @@ Type "help", "copyright", "credits" or "license()" for more information.
 SyntaxError: invalid syntax
 >>> input<'your Korean age?; >
 SyntaxError: EOL while scanning string literal
+>>> input<'your Korean age?: '>
+SyntaxError: invalid syntax
+>>> input <your age?>
+SyntaxError: invalid syntax
+>>> input<'your age?'>
+SyntaxError: invalid syntax
+>>> input('your Korean age?: ')
+your Korean age?: 23
+'23'
+>>> x = input('your Korean age?: ')
+your Korean age?: 23
+>>> print(x, 'years')
+23 years
+>>> x = x + 1
+Traceback (most recent call last):
+  File "<pyshell#20>", line 1, in <module>
+    x = x + 1
+TypeError: can only concatenate str (not "int") to str
 >>> 
