@@ -1,6 +1,8 @@
 # 성적표 출력 함수
 import os
 
+# 작동하도록 하려면 경로를 바꿔주어야 함! (지금 있는 myfirstpython은 경로가 복잡해서 잘 작동하지 않을 수 있음)
+
 
 def makereport(ranklist):
     if os.path.exists("/Users/harampark/Desktop/visualprogramming/_report.txt") == True:
