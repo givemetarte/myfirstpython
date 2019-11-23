@@ -1,10 +1,11 @@
-# 1. 예외처리
+
 
 import os
 ufile = input('파일 이름을 입력하세요.: ')
 
 scorelist = []
 
+# 입력받은 파일이름이 없을 때 예외처리하고 다시 이름 받기
 while True:
     try:
         f = open("%s.csv" % ufile, 'r', encoding='CP949')
@@ -45,19 +46,8 @@ for i in averlist:
         if i == scorelist[j][-1]:
             ranklist.append(scorelist[j])
 
-'''
-# report.txt 파일 만들기
-f = open("_report.txt", 'w', encoding='CP949')
-index = ['ranking', 'number', 'korean', 'English', 'Math', 'Sum', 'Average']
-f.write("%7s %6s %6s %7s %4s %3s %7s\n" %
-        (index[0], index[1], index[2], index[3], index[4], index[5], index[6]))
-for i in range(7):
-    f.write("%7d %6s %6s %7s %4s %3d %7.1f\n" % (
-        (i+1), ranklist[i][0], ranklist[i][1], ranklist[i][2], ranklist[i][3], ranklist[i][4], ranklist[i][5]))
-f.close()
-'''
-'''
-if os.path.exists("/Users/harampark/Library/Mobile\ Documents/com\~apple\~CloudDocs/Documents/myfirstpython/2019-2_visualprogramming/_report.txt") == True:
+# 파일 덮어씌울지 말지 정해서 파일 생성하기
+if os.path.exists("/Users/harampark/Desktop/visualprogramming/_report.txt") == True:
     print('동일한 이름의 파일이 있습니다.\n 덮어씌우시겠습니까?')
     answer = input('예, 아니오로만 입력하세요.: ')
     if answer == '예':
@@ -74,5 +64,3 @@ for i in range(7):
     f.write("%7d %6s %6s %7s %4s %3d %7.1f\n" % (
         (i+1), ranklist[i][0], ranklist[i][1], ranklist[i][2], ranklist[i][3], ranklist[i][4], ranklist[i][5]))
 f.close()
-'''
-print(os.path.exists("/Users/harampark/Library/Mobile\ Documents/com\~apple\~CloudDocs/Documents/myfirstpython/2019-2_visualprogramming/_report.txt"))
