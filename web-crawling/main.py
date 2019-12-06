@@ -1,12 +1,17 @@
-import requests
-from bs4 import BeautifulSoup
 
-everytime_result = requests.get(
-    "https://www.hankookilbo.com/News/Read/201911301819398871?did=NS&dtype=2&dtypecode=21383&prnewsid=")
+from crapper import job_search
+import pandas as pd
 
-everytime_soup = BeautifulSoup(everytime_result.text, "html.parser")
 
-pagination = everytime_soup.find("article-header", {"class": "pagination"})
+keyword = input('원하는 직무 분야를 입력하세요.')
+new_keyword = ''
+for word in keyword:
+    if word == ' ':
+        word = '+'
+    new_keyword += word
 
-page = pagination.find_all('a')
-print(page)
+HTML = f"https://kr.indeed.com/취업?q={keyword}&l="
+
+
+df = pd.DataFrame(job_search(HTML))
+df.to_csv('joblist.csv')
